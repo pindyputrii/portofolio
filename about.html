@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Pindy Putri Zalsabila</title>
+    <link rel="stylesheet" href="style.css?v=3">
+    
+    <style>
+        .about-intro {
+            margin-bottom: 20px;
+        }
+        .about-intro p {
+            margin-bottom: 15px;
+            font-size: 1.05rem;
+            color: #333;
+            line-height: 1.8;
+        }
+        
+        .resume-row {
+            display: grid;
+            grid-template-columns: 1fr 2fr; 
+            border-bottom: 1px solid #1a1a1a;
+        }
+        
+        @media (max-width: 768px) {
+            .resume-row {
+                grid-template-columns: 1fr;
+            }
+            .resume-label {
+                border-right: none !important;
+                border-bottom: 1px solid #1a1a1a;
+            }
+        }
+
+        .resume-label {
+            padding: 40px;
+            border-right: 1px solid #1a1a1a;
+            display: flex;
+            align-items: flex-start;
+            padding-top: 45px;
+        }
+        
+        .resume-content {
+            padding: 40px;
+        }
+        
+        .resume-item {
+            margin-bottom: 35px;
+        }
+        .resume-item:last-child {
+            margin-bottom: 0;
+        }
+        
+        .meta-date {
+            font-weight: 600;
+            color: #555;
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .item-title {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1.4rem;
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: #1a1a1a;
+        }
+        
+        .skills-list {
+            list-style: none;
+            line-height: 2;
+        }
+        .skills-list li {
+            border-bottom: 1px dashed #ccc;
+            padding-bottom: 8px;
+            margin-bottom: 15px;
+            font-size: 1.05rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="logo">Pindy Putri Zalsabila</a>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="editorial-grid" style="min-height: 60vh;">
+            <div class="grid-left" style="align-items: flex-start; border-right: none;">
+                <h1 class="main-headline">The <span class="script-text" style="color: #1a1a1a;">Story</span></h1>
+                <div class="about-intro">
+                    <p>Halo, saya <strong>Pindy Putri Zalsabila</strong>. Berbasis di Jakarta, saya adalah mahasiswi Teknik Informatika dengan spesialisasi di bidang <em>Frontend Development</em>.</p>
+                    <p>Bagi saya, barisan kode adalah kanvas untuk merancang pengalaman pengguna yang interaktif dan mulus. Meskipun memiliki dasar yang kuat dalam pengembangan <em>Full Stack</em>, hasrat terbesar saya terletak pada seni menerjemahkan desain UI/UX menjadi antarmuka web yang responsif dan hidup.</p>
+                </div>
+            </div>
+            <div class="grid-right" style="border-left: 1px solid #1a1a1a; align-items: center;">
+                <img src="pindy.jpg" alt="Pindy Putri" class="img-frame" style="width: 80%; transform: rotate(2deg); box-shadow: 10px 10px 0px #f29bbd;">
+            </div>
+        </section>
+
+        <section style="border-top: 1px solid #1a1a1a;">
+            
+            <div class="resume-row">
+                <div class="resume-label">
+                    <h2 style="font-size: 2.5rem; margin: 0;">Education</h2>
+                </div>
+                <div class="resume-content">
+                    <div class="resume-item">
+                        <p class="meta-date">2023 - Sekarang</p>
+                        <h3 class="item-title">S1 Teknik Informatika</h3>
+                        <p>Universitas Paramadina, Indonesia</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="resume-row">
+                <div class="resume-label">
+                    <h2 style="font-size: 2.5rem; margin: 0;">Experience</h2>
+                </div>
+                <div class="resume-content">
+                    
+                    <div class="resume-item">
+                        <p class="meta-date">Nov 2025 - Apr 2026</p>
+                        <h3 class="item-title">Fullstack Developer — SweetWellness</h3>
+                        <p>Mengembangkan secara mandiri platform <strong>SweetWellness</strong>, sebuah solusi web resep sehat terpersonalisasi. Lingkup pekerjaan saya meliputi:</p>
+                        <ul style="margin-top: 10px; margin-left: 20px; line-height: 1.8;">
+                            <li><strong>Frontend:</strong> Membangun UI yang responsif menggunakan <strong>React</strong> dan <strong>Vite</strong> untuk performa yang optimal.</li>
+                            <li><strong>Backend:</strong> Merancang sistem server dan manajemen basis data menggunakan <strong>Node.js</strong> dan <strong>MySQL</strong> untuk penyimpanan data pengguna secara permanen.</li>
+                            <li><strong>Integrasi AI:</strong> Mengimplementasikan <strong>Gemini API</strong> untuk menghadirkan fitur <em>chatbot</em> asisten nutrisi yang cerdas.</li>
+                        </ul>
+                    </div>
+
+                    <div class="resume-item">
+                        <p class="meta-date">2026</p>
+                        <h3 class="item-title">Full Stack Developer — Sistem Cuti Akademik</h3>
+                        <p>Membangun Sistem Informasi Pengajuan Cuti Akademik Mahasiswa[cite: 1]. Lingkup pekerjaan mencakup:</p>
+                        <ul style="margin-top: 10px; margin-left: 20px; line-height: 1.8;">
+                            <li>Menerapkan pemrograman asinkron pada keseluruhan proses bisnis menggunakan <strong>Next.js</strong> dan <strong>Express.js</strong>[cite: 1].</li>
+                            <li>Mengelola basis data pengajuan cuti secara efisien menggunakan <strong>MongoDB</strong>[cite: 1].</li>
+                        </ul>
+                    </div>
+
+                    <div class="resume-item">
+                        <p class="meta-date">2026</p>
+                        <h3 class="item-title">Full Stack Developer — Digitalisasi Laporan</h3>
+                        <p>Mengembangkan aplikasi pencatatan aktivitas dan persetujuan laporan operasional untuk Elit Perdanakusuma. Lingkup pekerjaan mencakup:</p>
+                        <ul style="margin-top: 10px; margin-left: 20px; line-height: 1.8;">
+                            <li>Merancang arsitektur aplikasi secara menyeluruh menggunakan <strong>Next.js</strong>, <strong>Express.js</strong>, dan <strong>MongoDB</strong>.</li>
+                        </ul>
+                    </div>
+
+                    <div class="resume-item">
+                        <p class="meta-date">2026</p>
+                        <h3 class="item-title">Frontend Developer — CultureFun</h3>
+                        <p>Mengembangkan aplikasi edukasi budaya Nusantara berbasis mobile dengan fitur kuis interaktif[cite: 2]. Lingkup pekerjaan mencakup:</p>
+                        <ul style="margin-top: 10px; margin-left: 20px; line-height: 1.8;">
+                            <li>Membangun antarmuka aplikasi menggunakan framework <strong>Flutter</strong> dan bahasa pemrograman <strong>Dart</strong>[cite: 2].</li>
+                        </ul>
+                    </div>
+
+                    <div class="resume-item">
+                        <p class="meta-date">Project</p>
+                        <h3 class="item-title">Frontend Developer — Thug Runner</h3>
+                        <p>Membangun antarmuka permainan web bergenre <em>endless runner</em> dengan mekanik menyerupai Temple Run.</p>
+                        <ul style="margin-top: 10px; margin-left: 20px; line-height: 1.8;">
+                            <li>Mengembangkan logika antarmuka dan interaksi menggunakan <strong>HTML5</strong>, <strong>CSS3</strong>, dan <strong>JavaScript</strong>.</li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="resume-row" style="border-bottom: none;">
+                <div class="resume-label">
+                    <h2 style="font-size: 2.5rem; margin: 0;">Core Skills</h2>
+                </div>
+                <div class="resume-content">
+                    <ul class="skills-list">
+                        <li><strong>Frontend Expertise:</strong> HTML5, CSS3, Tailwind CSS, JavaScript (ES6+), React.js, Next.js, Vite, Flutter</li>
+                        <li><strong>Backend & Database:</strong> Node.js, Express.js, PHP, MySQL, PDO, MongoDB, RESTful API Integration</li>
+                        <li><strong>Tools:</strong> Git/GitHub, Figma, VS Code, MAMP Environment</li>
+                    </ul>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+</body>
+</html>

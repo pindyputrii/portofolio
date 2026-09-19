@@ -1,0 +1,244 @@
+/* style.css */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;600&family=Qwitcher+Grypen:wght@700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f6f5f0; /* Warna cream */
+    color: #1a1a1a;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    line-height: 1.6;
+}
+
+h1, h2, h3 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 400;
+}
+
+/* ================================
+   HEADER & NAVIGASI
+   ================================ */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    border-bottom: 1px solid #1a1a1a;
+    background-color: #f6f5f0;
+}
+
+.logo {
+    font-family: 'Qwitcher Grypen', cursive;
+    font-size: 2.5rem;
+    color: #f29bbd; /* Pink pastel */
+    text-decoration: none;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #1a1a1a;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #f29bbd;
+}
+
+/* ================================
+   GRID LAYOUT (GAYA EDITORIAL)
+   ================================ */
+.editorial-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 80vh;
+}
+
+.grid-left, .grid-right {
+    padding: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.grid-left {
+    border-right: 1px solid #1a1a1a;
+    align-items: center; /* Khusus untuk Home: gambar ke tengah */
+}
+
+/* Penyesuaian saat grid kiri tidak perata tengah (untuk halaman Kontak) */
+.contact-grid-left {
+    align-items: flex-start;
+}
+
+.img-frame {
+    width: 80%;
+    max-width: 400px;
+    height: auto;
+    border: 1px solid #1a1a1a;
+    padding: 10px;
+    background-color: #fff;
+}
+
+/* ================================
+   TIPOGRAFI & TOMBOL
+   ================================ */
+.script-text {
+    font-family: 'Qwitcher Grypen', cursive;
+    color: #f29bbd;
+    font-size: 3.5rem;
+    line-height: 0.5;
+    transform: rotate(-5deg);
+    margin-bottom: 20px;
+    display: inline-block;
+}
+
+.main-headline {
+    font-size: 4rem;
+    line-height: 1.1;
+    margin-bottom: 20px;
+}
+
+.btn-pink {
+    display: inline-block;
+    background-color: #f29bbd;
+    color: #1a1a1a;
+    padding: 15px 30px;
+    text-decoration: none;
+    border: 1px solid #1a1a1a;
+    border-radius: 50px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 30px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-pink:hover {
+    background-color: #1a1a1a;
+    color: #f29bbd;
+}
+
+/* ================================
+   TEKS BERJALAN (MARQUEE)
+   ================================ */
+.marquee-container {
+    background-color: #f29bbd;
+    border-top: 1px solid #1a1a1a;
+    border-bottom: 1px solid #1a1a1a;
+    padding: 15px 0;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.marquee-text {
+    display: inline-block;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    animation: scroll 20s linear infinite;
+}
+
+@keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+/* ================================
+   HALAMAN UMUM (PORTOFOLIO, DLL)
+   ================================ */
+.page-container {
+    max-width: 1000px;
+    margin: 50px auto;
+    padding: 40px;
+    background: #fff;
+    border: 1px solid #1a1a1a;
+}
+
+/* Form Styling */
+.form-group {
+    margin-bottom: 20px;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #1a1a1a;
+    background-color: #f6f5f0;
+    font-family: inherit;
+    margin-top: 8px; /* Jarak antara label dan input */
+}
+
+/* Table Styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    border: 1px solid #1a1a1a;
+    padding: 15px;
+    text-align: left;
+}
+
+th {
+    background-color: #f29bbd;
+}
+
+/* ================================
+   INFO KONTAK (SEJAJAR 2 KOLOM)
+   ================================ */
+.contact-details {
+    border-top: 1px solid #1a1a1a;
+    margin-top: 40px;
+    padding-top: 30px;
+    display: grid; /* Membuat layout grid */
+    grid-template-columns: 1fr 1fr; /* Membagi menjadi 2 kolom rata */
+    gap: 30px 20px; /* Jarak antar kolom dan baris */
+}
+
+.detail-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.detail-label {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.detail-value {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    color: #1a1a1a;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    word-break: break-word;
+}
+
+.detail-value[href]:hover {
+    font-style: italic;
+    opacity: 0.6;
+    padding-left: 5px;
+}

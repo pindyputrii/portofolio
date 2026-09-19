@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Pindy Putri</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .error-text { color: #d9534f; font-size: 0.85rem; margin-top: 5px; display: block; font-weight: 600; }
+        .input-error { border: 1px solid #d9534f !important; background-color: #fdf2f2 !important; }
+        #successBox { display: none; background-color: #fff; border: 2px solid #f29bbd; padding: 30px; text-align: left; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="logo">Pindy Putri Zalsabila</a>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="contact.html">Contact</a></li> 
+            </ul>
+        </nav>
+    </header>
+
+    <main class="editorial-grid">
+        <div class="grid-left" style="background-color: #f29bbd; border-right: none;">
+            <h1 class="main-headline">Let's <span class="script-text" style="color: #1a1a1a;">Collaborate</span></h1>
+            <p>Ingin mewujudkan desain UI/UX Anda menjadi website yang interaktif dan responsif? Jangan ragu untuk mengirim pesan dan mari berkolaborasi.</p>
+            
+            <div class="contact-details">
+                <div class="detail-item">
+                    <span class="detail-label">Base Location</span>
+                    <span class="detail-value">Jakarta, Indonesia</span>
+                </div>
+                
+                <div class="detail-item">
+                    <span class="detail-label">Email Inquiries</span>
+                    <a href="mailto:pindyputri0@gmail.com" class="detail-value">pindyputri0@gmail.com</a>
+                </div>
+                
+                <div class="detail-item">
+                    <span class="detail-label">Phone / WhatsApp</span>
+                    <span class="detail-value">+62 851 2151 4099</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid-right" style="border-left: 1px solid #1a1a1a;">
+            
+            <div id="successBox">
+                <h2 style="font-family: 'Playfair Display', serif; font-size: 2rem; margin-bottom: 10px;">Pesan Tersimpan!</h2>
+                <p>Terima kasih, <strong id="displayName"></strong>. Sistem backend kami telah menerima pesan Anda.</p>
+                <hr style="border: none; border-top: 1px solid #1a1a1a; margin: 20px 0;">
+                <button onclick="location.reload()" class="btn-pink" style="display: block; width: 100%; text-align: center;">Kirim Pesan Baru</button>
+            </div>
+
+            <form id="contactForm">
+                <div class="form-group">
+                    <label for="nama" style="font-weight: bold; font-family: 'Playfair Display', serif; font-size: 1.1rem;">Nama Anda</label>
+                    <input type="text" id="nama" name="nama" required placeholder="John Doe">
+                </div>
+                <div class="form-group">
+                    <label for="email" style="font-weight: bold; font-family: 'Playfair Display', serif; font-size: 1.1rem;">Email Aktif</label>
+                    <input type="email" id="email" name="email" required placeholder="hello@website.com">
+                </div>
+                <div class="form-group">
+                    <label for="pesan" style="font-weight: bold; font-family: 'Playfair Display', serif; font-size: 1.1rem;">Detail Proyek / Pesan</label>
+                    <textarea id="pesan" name="pesan" rows="4" required placeholder="Ceritakan ide sistem..."></textarea>
+                </div>
+                <button type="submit" id="btnSubmit" class="btn-pink" style="width: 100%; font-size: 1.1rem;">Kirim Pesan</button>
+            </form>
+
+        </div>
+    </main>
+
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault(); 
+            
+            // Log saat tombol ditekan
+            console.log("Form submitted! Preventing default...");
+
+            const formData = new FormData(this);
+            const submitBtn = document.getElementById('btnSubmit');
+
+            // Log data apa saja yang ditangkap dari form
+            console.log("nama: " + formData.get('nama'));
+            console.log("email: " + formData.get('email'));
+            console.log("pesan: " + formData.get('pesan'));
+
+            submitBtn.innerHTML = "Mengirim...";
+            submitBtn.disabled = true;
+
+            fetch('contact.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => {
+                // Log status respons dari server (Harusnya 200)
+                console.log("Response status: " + response.status);
+                return response.json(); 
+            }) 
+            .then(data => {
+                // Log hasil akhir JSON dari PHP
+                console.log("INI RESPONSE: ", data);
+
+                if(data.success === true) {
+                    document.getElementById('contactForm').style.display = 'none';
+                    document.getElementById('displayName').innerText = data.data.name;
+                    document.getElementById('successBox').style.display = 'block';
+                } else {
+                    alert("Gagal: " + data.message);
+                    submitBtn.innerHTML = "Kirim Pesan";
+                    submitBtn.disabled = false;
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert("Terjadi kesalahan sistem. Silakan coba lagi.");
+                submitBtn.innerHTML = "Kirim Pesan";
+                submitBtn.disabled = false;
+            });
+        });
+    </script>
+</body>
+</html>
