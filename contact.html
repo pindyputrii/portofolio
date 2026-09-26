@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact - Pindy Putri</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=6">
     <style>
         .error-text { color: #d9534f; font-size: 0.85rem; margin-top: 5px; display: block; font-weight: 600; }
         .input-error { border: 1px solid #d9534f !important; background-color: #fdf2f2 !important; }
@@ -26,11 +26,11 @@
     </header>
 
     <main class="editorial-grid">
-        <div class="grid-left" style="background-color: #f29bbd; border-right: none;">
-            <h1 class="main-headline">Let's <span class="script-text" style="color: #1a1a1a;">Collaborate</span></h1>
-            <p>Ingin mewujudkan desain UI/UX Anda menjadi website yang interaktif dan responsif? Jangan ragu untuk mengirim pesan dan mari berkolaborasi.</p>
+        <div class="grid-left contact-grid-left" style="background-color: #f29bbd; border-right: none;">
+            <h1 class="main-headline" style="margin-top: 0;">Let's <span class="script-text" style="color: #1a1a1a;">Collaborate</span></h1>
+            <p style="font-size: 1.05rem; line-height: 1.8; margin-bottom: 20px;">Ingin mewujudkan desain UI/UX Anda menjadi website yang interaktif dan responsif? Jangan ragu untuk mengirim pesan dan mari berkolaborasi.</p>
             
-            <div class="contact-details">
+            <div class="contact-details" style="width: 100%;">
                 <div class="detail-item">
                     <span class="detail-label">Base Location</span>
                     <span class="detail-value">Jakarta, Indonesia</span>
@@ -48,7 +48,7 @@
             </div>
         </div>
 
-        <div class="grid-right" style="border-left: 1px solid #1a1a1a;">
+        <div class="grid-right" style="border-left: 1px solid #1a1a1a; align-items: flex-start; justify-content: flex-start;">
             
             <div id="successBox">
                 <h2 style="font-family: 'Playfair Display', serif; font-size: 2rem; margin-bottom: 10px;">Pesan Tersimpan!</h2>
@@ -57,7 +57,7 @@
                 <button onclick="location.reload()" class="btn-pink" style="display: block; width: 100%; text-align: center;">Kirim Pesan Baru</button>
             </div>
 
-            <form id="contactForm">
+            <form id="contactForm" style="width: 100%;">
                 <div class="form-group">
                     <label for="nama" style="font-weight: bold; font-family: 'Playfair Display', serif; font-size: 1.1rem;">Nama Anda</label>
                     <input type="text" id="nama" name="nama" required placeholder="John Doe">
@@ -80,13 +80,11 @@
         document.getElementById('contactForm').addEventListener('submit', function(e) {
             e.preventDefault(); 
             
-            // Log saat tombol ditekan
             console.log("Form submitted! Preventing default...");
 
             const formData = new FormData(this);
             const submitBtn = document.getElementById('btnSubmit');
 
-            // Log data apa saja yang ditangkap dari form
             console.log("nama: " + formData.get('nama'));
             console.log("email: " + formData.get('email'));
             console.log("pesan: " + formData.get('pesan'));
@@ -99,12 +97,10 @@
                 body: formData
             })
             .then(response => {
-                // Log status respons dari server (Harusnya 200)
                 console.log("Response status: " + response.status);
                 return response.json(); 
             }) 
             .then(data => {
-                // Log hasil akhir JSON dari PHP
                 console.log("INI RESPONSE: ", data);
 
                 if(data.success === true) {
