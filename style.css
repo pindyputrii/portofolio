@@ -242,3 +242,69 @@ th {
     opacity: 0.6;
     padding-left: 5px;
 }
+
+/* =========================================
+   RESPONSIVE DESIGN (TAMPILAN MOBILE)
+   Aturan ini hanya aktif jika lebar layar 768px atau lebih kecil (HP/Tablet)
+   ========================================= */
+
+@media (max-width: 768px) {
+    /* 1. Navigasi Header: Susun jadi atas-bawah dan ke tengah */
+    header {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+        padding: 20px;
+    }
+    header nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    /* 2. Layout Kiri-Kanan (Grid): Ubah jadi Atas-Bawah (Kolom) */
+    .editorial-grid {
+        display: flex;
+        flex-direction: column;
+    }
+    .grid-left, .grid-right {
+        width: 100%;
+        border-right: none !important;
+        border-left: none !important;
+        padding: 30px 20px !important;
+    }
+    
+    /* Tambahkan garis pemisah antara bagian atas dan bawah */
+    .grid-right {
+        border-top: 1px solid #1a1a1a;
+    }
+
+    /* 3. Sesuaikan Ukuran Tipografi Raksasa agar tidak meluber di HP */
+    .main-headline {
+        font-size: 3rem !important; 
+    }
+    .script-text {
+        font-size: 3.5rem !important;
+    }
+
+    /* 4. Tabel Portfolio: Izinkan scroll ke samping (horizontal) agar tidak terpotong */
+    table {
+        display: block;
+        width: 100%;
+        overflow-x: auto;
+        white-space: nowrap; /* Mencegah teks di dalam tabel turun ke bawah berantakan */
+    }
+
+    /* 5. Resume (About): Ubah jadi atas-bawah */
+    .resume-row {
+        grid-template-columns: 1fr !important;
+    }
+    .resume-label {
+        border-right: none !important;
+        border-bottom: 1px solid #1a1a1a;
+        padding: 30px 20px !important;
+    }
+    .resume-content {
+        padding: 30px 20px !important;
+    }
+}
